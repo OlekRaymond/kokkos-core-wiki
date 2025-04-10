@@ -211,7 +211,7 @@ Backend-specific options
       * Enable relocatable device code (RDC) for CUDA
       * ``OFF``
 
-    * * ``Kokkos_ENABLE_CUDA_UVM`` :red:`[Deprecated since 4.0]` see `Transition to alternatives <usecases/Moving_from_EnableUVM_to_SharedSpace.html>`_
+    * * ``Kokkos_ENABLE_CUDA_UVM`` :red:`[Deprecated since 4.0]` see `Transition to alternatives <../usecases/Moving_from_EnableUVM_to_SharedSpace.html>`_
       * Use unified memory (UM) by default for CUDA
       * ``OFF``
 
@@ -219,7 +219,7 @@ Backend-specific options
       * Use ``cudaMallocAsync`` (requires CUDA Toolkit version 11.2 or higher). This
 	optimization may improve performance in applications with multiple CUDA streams per device, but it
 	is known to be incompatible with MPI distributions built on older versions of UCX
-	and many Cray MPICH instances. See `known issues <known-issues.html#cuda>`_.
+	and many Cray MPICH instances. See `known issues <../known-issues.html#cuda>`_.
       * (see below)
 
     * * ``Kokkos_ENABLE_HIP_MULTIPLE_KERNEL_INSTANTIATIONS``
@@ -529,6 +529,10 @@ If cross-compiling, or if you want to be specific, the CPU architecture can be p
       - Milk-V Pioneer
       - (since Kokkos 4.3)
 
+    * - ``Kokkos_ARCH_RISCV_U74MC``
+      - U74MC/RISC-V ISA
+      - SiFive Unmatched
+      - (since Kokkos 4.7)
 
 GPU Architectures
 -----------------
@@ -753,44 +757,58 @@ Intel GPUs
 ~~~~~~~~~~
 
 .. list-table::
-    :widths: 25 35 40
+    :widths: 15 25 35 25
     :header-rows: 1
     :align: left
 
     * - CMake option
       - Architecture
       - Models
+      - Notes
 
     * * ``Kokkos_ARCH_INTEL_PVC``
       * Xe-HPC (Ponte Vecchio)
       * Intel Data Center GPU Max 1550
+      *
 
     * * ``Kokkos_ARCH_INTEL_XEHP``
       * Xe-HP
+      *
       *
 
     * * ``Kokkos_ARCH_INTEL_DG1``
       * Iris Xe MAX (DG1)
       *
+      *
+
+    * * ``Kokkos_ARCH_INTEL_DG2``
+      * Intel DG2
+      * Intel Flex, Intel Arc
+      * (since Kokkos 4.7)
 
     * * ``Kokkos_ARCH_INTEL_GEN12LP``
       * Gen12LP
       * Intel UHD Graphics 770
+      *
 
     * * ``Kokkos_ARCH_INTEL_GEN11``
       * Gen11
       * Intel UHD Graphics
+      *
 
     * * ``Kokkos_ARCH_INTEL_GEN9``
       * Gen9
       * Intel HD Graphics 510, Intel Iris Pro Graphics 580
+      *
 
     * *
       *
       *
+      *
 
     * * ``Kokkos_ARCH_INTEL_GEN``
-      * Just-In-Time compilation*
+      * Just-In-Time compilation* for Intel GPUs in particular
+      *
       *
 
 \* ``Kokkos_ARCH_INTEL_GEN`` enables Just-In-Time compilation for Intel GPUs
